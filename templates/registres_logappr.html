@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Enregistrement Apprenants</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../static/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../static/assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="left-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+
+					<!-- Inner -->
+						<div class="inner">
+							<header>
+								<h1><a href="index.html" id="logo">Enregistrement Apprenants</a></h1>
+							</header>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="/">Accueil</a></li>
+								<li><a href="/valid_position">Connexion_Apprenants</a></li>
+								<li><a href="/loginformateurs">Connexion_Formateurs</a></li>
+								
+							</ul>
+						</nav>
+						<div></div>
+
+						{% block y %}
+  
+							   {% if session.name %}
+							      Connecté entant: {{ session.name }} &nbsp;<a href="/logout">Deconnexion</a>.
+							   {% else %}
+							      Vous êtes déconnecté. <a href="/login">Connexion</a>.
+							   {% endif %}
+							  
+							{% endblock %}
+							</div>
+				</div>
+
+			<div class="container"><br>
+    <div class="row align-items-center justify-content-center" style="
+    margin-left: 400px;">
+    <div class="col-md-4">
+	<center><form method="POST" role="form" action="/valid_presence">
+		<div class="row">
+          <!-- <div class="col">
+		<label>ID_appren:</label> 
+		 </div> -->
+		 		<input  hidden  readonly name="idapprt" value="{{reginfo2}}"><br>
+		 <div class="col" style="padding-left: 0px;margin-left: 145px;">
+
+	   </div>
+	</div>
+
+		<div class="row">
+          <div class="col">
+		<label>Code Registre:</label>
+		 </div>
+		 <div class="col" style="padding-left: 0px;margin-left: 75px;">
+		<input id="formregistre" readonly=""  name="coderegis" style="
+    padding-bottom: 0px;
+    padding-top: 10px;
+" required><br>
+	   </div>
+	</div>
+
+
+		<div class="row">
+          <div class="col">
+		<label>Nom:</label>
+		 </div>
+		 <div class="col" style="padding-left: 0px;margin-left: 145px;">
+		<input    name="nom" value="{{ session.name }}" readonly style="
+    padding-bottom: 0px;
+    padding-top: 10px;
+" required><br>
+	   </div>
+	</div>
+        
+        <div class="row">
+          <div class="col">
+		<label >Prenom:</label>
+		</div>
+		 <div class="col" style="padding-left: 0px;margin-left: 122px;">
+		<input type="text"  class="form-control" name="prenom" style="
+    padding-bottom: 0px;
+    padding-top: 10px;
+" required><br>
+		</div>
+	</div>
+        
+        <div class="row">
+          <div class="col">
+		<label for="var1">Marque PC:</label>
+		</div>
+		 <div class="col" style="padding-left: 0px;margin-left: 100px;">
+		<input type="text" class="form-control" name="marquepc" style="
+    padding-bottom: 0px;
+    padding-top: 10px;
+" required><br>
+		</div>
+	</div>
+        
+        <div class="row">
+          <div class="col">
+		<label >Date :</label>
+		</div>
+		 <div class="col" style="padding-left: 0px;margin-left: 151px;">
+		<input   id="formdate" readonly name="datjour" style="padding-bottom: 0px; padding-top: 10px;">
+		<br>
+		</div>
+	</div>
+        
+        <div class="row">
+          <div class="col">
+		<label >Heure:</label>
+		</div>
+		 <div class="col" style="margin-left: 105px;">
+		<input  id="formtime"  readonly name="heuarrv" style="padding-bottom: 0px;padding-top: 10px;" ><br>
+		<!-- <p id="demo"></p> -->
+		</div>
+	</div><br>
+        
+		<button type="submit" class="btn btn-success" style=" height: 45px; font-size: 20px; padding-right: 30px; padding-left: 30px; background: #0f6987;">S'enregistrer </button> 	
+	</form><br>
+    
+<!-- Scripts -->
+
+
+<script>
+
+var date = new Date();
+
+var day = date.getDate(),
+    month = date.getMonth() + 1,
+    year = date.getFullYear(),
+    hour = date.getHours(),
+    min  = date.getMinutes();
+
+month = (month < 10 ? "0" : "") + month;
+day = (day < 10 ? "0" : "") + day;
+hour = (hour < 10 ? "0" : "") + hour;
+min = (min < 10 ? "0" : "") + min;
+
+var today = day + "/" + month + "/" + year,
+    displayTime = hour + ":" + min;
+    codereg=day+month+year
+
+
+document.getElementById('formdate').value = today;      
+document.getElementById("formtime").value = displayTime;
+document.getElementById("formregistre").value = codereg;
+</script>
+
+
+
+
+<!-- <script>
+const d = new Date();
+let day = d.getDate();
+let mois = d.getMinutes();
+document.getElementById("demo").innerHTML = hour+":"+ min;
+</script> -->
+
+
+
+
+		
+			<script src="../static/assets/js/jquery.min.js"></script>
+			<script src="../static/assets/js/jquery.dropotron.min.js"></script>
+			<script src="../static/assets/js/jquery.scrolly.min.js"></script>
+			<script src="../static/assets/js/jquery.scrollex.min.js"></script>
+			<script src="../static/assets/js/browser.min.js"></script>
+			<script src="../static/assets/js/breakpoints.min.js"></script>
+			<script src="../static/assets/js/util.js"></script>
+			<script src="../static/assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+ 
+ 
+ 
+
+ 
+ 
+ 
+{% block body %}
+
+<div id="header2">
+<nav id="nav">
+	<ul>
+		<li><a href="/">Accueil</a></li>
+		<li><a href="/logout">Deconnexion</a></li>
+
+		
+	</ul>
+</nav>
+{% block y %}
+  
+							   {% if session.name %}
+							      Connecté entant: {{ session.name }} &nbsp;<a href="/logout">Deconnexion</a>.
+							   {% else %}
+							      Vous êtes déconnecté. <a href="/login">Connexion</a>.
+							   {% endif %}
+							  
+							{% endblock %}
+</div>
+ 
+<div class="jumbotron p-3">
+    <div class="well text-center">
+ 
+ 
+    </div>
+ 
+ 
+</div>
+ 
+ 
+{% endblock %}

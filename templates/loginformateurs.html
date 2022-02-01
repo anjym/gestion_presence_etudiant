@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Login Formateur</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../static/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../static/assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+
+					<!-- Inner -->
+						<div class="inner">
+							<header>
+								<h1><a href="index.html" id="logo">Login Formateur</a></h1>
+							</header>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="/">Accueil</a></li>
+								<li><a href="/valid_position">Connexion_Apprenants</a></li>
+								<li><a href="/loginformateurs">Connexion_Formateurs</a></li>
+								
+							</ul>
+							<center style="padding-top: 150px;"> {{msg6}}</center>
+						</nav>
+
+				</div>
+
+			<div class="container"><br>
+    <div class="row align-items-center justify-content-center" style="margin-left: 400px;">
+    <div class="col-md-4">
+	<center><form method="POST" role="form" action="/dashbord_for">
+
+         <div class="row">
+          <div class="col">
+		<label>Matricule:</label>
+		 </div>
+		 <div class="col" style="padding-left: 0px;margin-left: 145px;">
+		<input type="text"  class="form-control" name="matricufor" style="
+    padding-bottom: 0px;
+    padding-top: 10px;
+" required><br>
+	   </div>
+	</div>
+
+
+
+		<div class="row">
+          <div class="col">
+		<label>Login:</label>
+		 </div>
+		 <div class="col" style="padding-left: 0px;margin-left: 145px;">
+		<input type="text"  class="form-control" name="loginfr" style="
+    padding-bottom: 0px;
+    padding-top: 10px;
+" required><br>
+	   </div>
+	</div>
+        
+        
+
+        
+        <div class="row">
+          <div class="col">
+		<label >Password:</label>
+		</div>
+		 <div class="col" style="padding-left: 0px;margin-left: 122px;">
+		<input type="password"  class="form-control" name="passwordfr" style="
+    padding-bottom: 0px;
+    padding-top: 10px;
+" required><br>
+		</div>
+	</div>
+        
+ 
+		<button type="submit" class="btn btn-success" style=" height: 45px; font-size: 20px; padding-right: 30px; padding-left: 30px; background: #0f6987;">Se Connecter </button> 	
+	</form><br>
+
+		<!-- Scripts -->
+			<script src="../static/assets/js/jquery.min.js"></script>
+			<script src="../static/assets/js/jquery.dropotron.min.js"></script>
+			<script src="../static/assets/js/jquery.scrolly.min.js"></script>
+			<script src="../static/assets/js/jquery.scrollex.min.js"></script>
+			<script src="../static/assets/js/browser.min.js"></script>
+			<script src="../static/assets/js/breakpoints.min.js"></script>
+			<script src="../static/assets/js/util.js"></script>
+			<script src="../static/assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Reconnaissance faciale</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+        <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css" />
+        <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+		<link rel="stylesheet" href="../static/assets/css/main.css" />
+        <style type="text/css">
+            #map{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
+                height:400px;
+            }
+        </style>
+		<noscript><link rel="stylesheet" href="../static/assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+
+					<!-- Inner -->
+						<div class="inner">
+							<header>
+								<h1><a href="index.html" id="logo">Reconnaissance Faciale</a></h1>
+							</header>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="/">Accueil</a></li>
+								<li><a href="/valid_position">Connexion_Apprenants</a></li>
+								<li><a href="/loginformateurs">Connexion_Formateurs</a></li>
+								
+							</ul>
+						</nav>
+
+                        <div></div>
+
+                        {% block y %}
+  
+                               {% if session.name %}
+                                  Connecté entant: {{ session.name }} &nbsp;<a href="/logout">Deconnexion</a>.
+                               {% else %}
+                                  Vous êtes déconnecté. <a href="/login">Connexion</a>.
+                               {% endif %}
+                              
+                            {% endblock %}
+                            </div>
+
+				</div>
+
+			
+
+		<div class="container">
+        <div class="row">
+        	
+            <div class="col-6"><center>
+                <br> 
+                <img src="{{ url_for('video_feed') }}" style="width: 552px; height:364px;">
+                
+                </center>
+            </div>
+
+            <div class="col-6" style="background-image: url('../static/images/pic04.jpg'); margin-top: 73px; padding-left: 10px;">
+            	
+            	<br>
+            	<p style="color:#ffffff;">
+            		- Validation de la reconnaissance faciale dans  <span id="time">00:10</span>  Second! <br>
+
+            		<br><br>
+            		CONDITIONS POUR LA VALIDATION DU TEST: <br>
+            		- Etre dans une salle bien éclairée. <br>
+            		- Se tenir a une distance > à 60 CM de votre webcam <br>
+            		- Patienter le delais de validation.
+            		- Eviter de bouger jusqu'à la fin du decompte.
+            	</p>
+            </div>
+        </div><br>  
+
+         <center><form method="POST" role="form" action="/dash_apprenants" id="form" > 
+              <!-- <button type="submit" >Valider</button>  -->
+              </form> </center> 
+            </div>
+
+
+
+
+
+
+    <script type="text/javascript">
+    	
+    function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var fiveMinutes = 60 * 0.33335,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};
+
+setTimeout(()=>{
+    $('#form').submit();
+},20000)
+    </script>
+	</body>
+</html>

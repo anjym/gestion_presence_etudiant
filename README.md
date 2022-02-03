@@ -14,8 +14,14 @@
  
 
 ###### 1- En invite de commande, lancer la commande python -m venv env pour creer l'environement
-###### 2- installer les différents packages dans le fichier requirements.txt
-###### 3- lancer la commande env\Scripts\activate
+###### 2- lancer la commande env\Scripts\activate
+###### 3- installer les différents packages dans le fichier requirements.txt
 ###### 4- lancer la commande set FLASK_APP= app.py
 ###### 5- lancer la commande flask run
 ###### 6-lancer 127.0.0.1:5000 dans le navigateur
+###### Utilisateur de test : 
+                      Apprenant : login : A01209
+                                  Password  : 12345
+                                  
+                      Formateur : login : michael
+                                  Password : 12345
